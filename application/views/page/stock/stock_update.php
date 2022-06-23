@@ -5,6 +5,7 @@
     <div class="card-body">
         <form id="form" method="POST" action="<?= site_url('stock/update') ?>">
             <input type="hidden" name="id_kendaraan" value="<?= $this->uri->segment(3); ?>">
+            
             <div class="mb-3">
                 <label for="cabang" class="form-label">Cabang</label>
                 <input type="text" class="form-control" id="cabang" name="cabang" placeholder="Cabang" value="<?= $data->cabang; ?>" required>
@@ -41,8 +42,12 @@
                     <option value="terjual">Terjual</option>
                 </select>
             </div>
+            <div class="mb-3" id="div_tanggal_penjualan">
+                <label for="tanggal_penjualan" class="form-label">Tanggal Penjualan</label>
+                <input type="date" class="form-control" id="tanggal_penjualan" name="tanggal_penjualan" placeholder="Nomor Rangka Kendaraan" value="<?= date('Y-m-d'); ?>">
+            </div>
             <div class="mb-3" id="div_marketing">
-                 <label for="id_marketing" class="form-label">Pilih Marketing</label>
+                <label for="id_marketing" class="form-label">Pilih Marketing</label>
                 <select class="form-select" id="id_marketing" name="id_marketing" aria-label="Marketing">
                     <?php
                         foreach ($data_marketing as $key => $rows) {
@@ -60,13 +65,16 @@
 </div>
 <script>
     $("#div_marketing").hide();
+    $("#div_tanggal_penjualan").hide();
     $("#kode_tipe").val("<?= $data->kode_tipe; ?>");
     $("#kode_warna").val("<?= $data->kode_warna; ?>");
     $('#status').on('change', function() {
         if(this.value == "terjual"){
             $("#div_marketing").show();
+            $("#div_tanggal_penjualan").show();
         }else{
             $("#div_marketing").hide();
+            $("#div_tanggal_penjualan").hide();
         }
        
     });

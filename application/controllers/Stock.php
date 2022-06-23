@@ -22,7 +22,15 @@ class Stock extends CI_Controller {
 	{
 		$data = [
 			'page' => 'stock/stock_index',
-			'data' => $this->crud_model->read('table_kendaraan', ['status' => 'stok'])->result()
+			'data' => $this->crud_model->read('tipe_kendaraan')->result()
+		];
+		$this->load->view('main_layout', $data);
+	}
+
+	public function details($kode_tipe){
+		$data  = [
+			'page' => 'stock/stock_details',
+			'data' => $this->crud_model->read('table_kendaraan',['kode_tipe' => $kode_tipe])->result(),
 		];
 		$this->load->view('main_layout', $data);
 	}

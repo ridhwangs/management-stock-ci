@@ -34,9 +34,15 @@
     <link href="<?= base_url('assets/signin.css') ?>" rel="stylesheet">
   </head>
   <body class="text-center">
-    <main class="form-signin">
+    <div class="container">
+      <div class="col-md-12">
+        <img src="<?= base_url("assets/logo-sps.png"); ?>"></img>
+      <h1 class="h3 mb-3 fw-normal">Sistem Informasi Manajemen Pemantauan dan Pengadaan Stok Kendaraan</h1>
+       
+      </div>
+      <div class="col-md-12"></div>
+      <main class="form-signin">
     <form method="POST" action="<?= site_url('login/doLogin'); ?>">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <div class="form-floating">
             <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username" required>
             <label for="floatingInput">Username</label>
@@ -46,8 +52,10 @@
             <label for="floatingPassword">Password</label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; MU'ARUF FATHUL ANAM</p>
+        <p class="mt-5 mb-3 text-muted">&copy; MU'ARIF FATHUL ANAM</p>
     </form>
     </main>
+    </div>
+  
   </body>
 </html>
