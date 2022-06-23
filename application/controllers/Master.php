@@ -27,7 +27,12 @@ class Master extends CI_Controller {
 					'page' => 'master/tipe/tipe_add',
 				];
 				break;
-			
+			case 'update':
+				$data = [
+					'page' => 'master/tipe/tipe_edit',
+					'data' => $this->crud_model->read('tipe_kendaraan', ['kode_tipe' => $this->uri->segment(4)])->row(),
+				];
+				break;
 			default:
 				$data = [
 					'page' => 'master/tipe/tipe_index',
@@ -47,7 +52,12 @@ class Master extends CI_Controller {
 					'page' => 'master/warna/warna_add',
 				];
 				break;
-			
+			case 'update':
+					$data = [
+						'page' => 'master/warna/warna_edit',
+						'data' => $this->crud_model->read('warna_kendaraan', ['kode_warna' => $this->uri->segment(4)])->row(),
+					];
+					break;
 			default:
 				$data = [
 					'page' => 'master/warna/warna_index',
@@ -64,7 +74,9 @@ class Master extends CI_Controller {
 		switch ($params) {
 			case 'tipe':
 					$data = [
-						'nama_tipe' => $this->input->post('nama_tipe')
+						'nama_tipe' => $this->input->post('nama_tipe'),
+						'safetystock' => $this->input->post('safetystock'),
+						'reorderpoint' => $this->input->post('reorderpoint'),
 					];
 					$this->crud_model->create('tipe_kendaraan', $data);
 					redirect('master/tipe');
@@ -74,6 +86,37 @@ class Master extends CI_Controller {
 						'nama_warna' => $this->input->post('nama_warna')
 					];
 					$this->crud_model->create('warna_kendaraan', $data);
+					redirect('master/warna');
+				break;
+			default:
+				# code...
+				break;
+		}
+	}
+
+	public function update($params)
+	{
+		switch ($params) {
+			case 'tipe':
+				$data = [
+					'nama_tipe' => $this->input->post('nama_tipe'),
+					'safetystock' => $this->input->post('safetystock'),
+					'reorderpoint' => $this->input->post('reorderpoint'),
+				];
+				$where = [
+					'kode_tipe' => $this->input->post('kode_tipe')
+				];
+				$this->crud_model->update('tipe_kendaraan', $where, $data);
+				redirect('master/tipe');
+			break;
+			case 'warna':
+					$data = [
+						'nama_warna' => $this->input->post('nama_warna')
+					];
+					$where = [
+						'kode_warna' => $this->input->post('kode_tkode_warnaipe')
+					];
+					$this->crud_model->create('warna_kendaraan',$where, $data);
 					redirect('master/warna');
 				break;
 			default:

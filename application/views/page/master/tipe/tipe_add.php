@@ -9,6 +9,14 @@
                 <input name="nama_tipe" type="text" class="form-control" id="nama_tipe" aria-describedby="nama_tipe" autofocus required>
                 <small id="nama_tipe" class="form-text text-muted">Tipe Kendaraan wajib di isi.</small>
             </div>
+            <div class="form-group">
+                <label for="safetystock">Safety Stock</label>
+                <input name="safetystock" type="text" class="form-control" id="safetystock" aria-describedby="safetystock" autofocus required>
+            </div>
+            <div class="form-group">
+                <label for="reorderpoint">Reorder Point</label>
+                <input name="reorderpoint" type="text" class="form-control" id="reorderpoint" aria-describedby="reorderpoint" autofocus required>
+            </div>
             
         </form>
     </div>

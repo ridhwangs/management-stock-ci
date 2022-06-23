@@ -13,6 +13,9 @@
             <tr>
               <th width="1%" scope="col-sm-1">No.</th>
               <th scope="col">Nama Tipe</th>
+              <th scope="col">Safety Stock</th>
+              <th scope="col">Reorder Point</th>
+              <th width="1%" scope="col-sm-1">#</th>
             </tr>
           </thead>
           <tbody>
@@ -22,6 +25,9 @@
                     echo ' <tr>
                                 <td>'.$no++.'</td>
                                 <td>'.$rows->nama_tipe.'</td>
+                                <td>'.$rows->safetystock.'</td>
+                                <td>'.$rows->reorderpoint.'</td>
+                                <td><a href="'.site_url('master/tipe/update/'. $rows->kode_tipe).'" class="btn btn-sm btn-primary">Edit</a></td>
                             </tr>';
                 } 
             ?>

@@ -30,7 +30,7 @@ class Stock extends CI_Controller {
 	public function details($kode_tipe){
 		$data  = [
 			'page' => 'stock/stock_details',
-			'data' => $this->crud_model->read('table_kendaraan',['kode_tipe' => $kode_tipe])->result(),
+			'data' => $this->crud_model->read('table_kendaraan',['status' => 'stok','kode_tipe' => $kode_tipe])->result(),
 		];
 		$this->load->view('main_layout', $data);
 	}
@@ -56,7 +56,21 @@ class Stock extends CI_Controller {
 		if($data['status'] == 'terjual'){
 			$data['id_marketing'] = $this->input->post('id_marketing');
 		}
+		// print_r($data);
 		$this->crud_model->update('table_kendaraan',['id_kendaraan' => $this->input->post('id_kendaraan')], $data);
 		redirect('stock');
+	}
+
+	public function cekRumus()
+	{
+		$leadTime = 49;
+		$leadTimeDemand = $leadTime * 10;
+		$safetyStock = (20 * 54) - $leadTimeDemand;
+		$reorderPoint = $leadTimeDemand + $safetyStock;
+
+		echo "Lead time :". $leadTime.'<br>';
+		echo "Lead time Demand:". $leadTimeDemand.'<br>';
+		echo "Safty Stock:". $safetyStock.'<br>';
+		echo "Re-order Point:". $reorderPoint.'<br>';
 	}
 }

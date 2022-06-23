@@ -42,10 +42,6 @@
                     <option value="terjual">Terjual</option>
                 </select>
             </div>
-            <div class="mb-3" id="div_tanggal_penjualan">
-                <label for="tanggal_penjualan" class="form-label">Tanggal Penjualan</label>
-                <input type="date" class="form-control" id="tanggal_penjualan" name="tanggal_penjualan" placeholder="Nomor Rangka Kendaraan" value="<?= date('Y-m-d'); ?>">
-            </div>
             <div class="mb-3" id="div_marketing">
                 <label for="id_marketing" class="form-label">Pilih Marketing</label>
                 <select class="form-select" id="id_marketing" name="id_marketing" aria-label="Marketing">
