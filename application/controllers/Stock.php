@@ -35,6 +35,14 @@ class Stock extends CI_Controller {
 		$this->load->view('main_layout', $data);
 	}
 
+	public function cari(){
+		$data  = [
+			'page' => 'stock/stock_cari',
+			'data' => $this->crud_model->read('table_kendaraan',['status' => 'stok','no_rangka LIKE' => '%'.$this->input->get('cari').'%'])->result(),
+		];
+		$this->load->view('main_layout', $data);
+	}
+
 	public function view($id)
 	{
 		$data = [
@@ -55,6 +63,8 @@ class Stock extends CI_Controller {
 		];
 		if($data['status'] == 'terjual'){
 			$data['id_marketing'] = $this->input->post('id_marketing');
+			$data['tanggal_jual'] = $this->input->post('tanggal_jual');
+
 		}
 		// print_r($data);
 		$this->crud_model->update('table_kendaraan',['id_kendaraan' => $this->input->post('id_kendaraan')], $data);

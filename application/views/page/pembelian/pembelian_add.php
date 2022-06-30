@@ -41,6 +41,10 @@
                 <label for="no_warna" class="form-label">No Rangka</label>
                 <input type="text" class="form-control" id="no_warna" name="no_rangka" placeholder="Nomor Rangka Kendaraan" required>
             </div>
+            <div class="mb-3">
+                <label for="tanggal_order" class="form-label">Tanggal Order</label>
+                <input type="date" class="form-control" id="tanggal_order" name="tanggal_order">
+            </div>
         </form>
     </div>
     <div class="card-footer">

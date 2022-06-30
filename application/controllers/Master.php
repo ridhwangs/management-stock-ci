@@ -75,7 +75,6 @@ class Master extends CI_Controller {
 			case 'tipe':
 					$data = [
 						'nama_tipe' => $this->input->post('nama_tipe'),
-						'safetystock' => $this->input->post('safetystock'),
 						'reorderpoint' => $this->input->post('reorderpoint'),
 					];
 					$this->crud_model->create('tipe_kendaraan', $data);
@@ -100,7 +99,6 @@ class Master extends CI_Controller {
 			case 'tipe':
 				$data = [
 					'nama_tipe' => $this->input->post('nama_tipe'),
-					'safetystock' => $this->input->post('safetystock'),
 					'reorderpoint' => $this->input->post('reorderpoint'),
 				];
 				$where = [
@@ -119,6 +117,24 @@ class Master extends CI_Controller {
 					$this->crud_model->create('warna_kendaraan',$where, $data);
 					redirect('master/warna');
 				break;
+			default:
+				# code...
+				break;
+		}
+	}
+
+	public function delete($attr, $id)
+	{
+		switch ($attr) {
+			case 'tipe':
+				$this->crud_model->delete('tipe_kendaraan', ['kode_tipe' => $id]);
+				redirect('master/tipe?message=Tipe berhasil di hapus');
+				break;
+			case 'warna':
+				$this->crud_model->delete('warna_kendaraan', ['kode_warna' => $id]);
+				redirect('master/warna?message=Warna berhasil di hapus');
+				break;
+			
 			default:
 				# code...
 				break;

@@ -52,6 +52,10 @@
                     ?>
                 </select>
             </div>
+            <div class="mb-3" id="div_tanggal_penjualan">
+            <label for="tanggal_jual" class="form-label">Tanggal Penjualan</label>
+            <input type="date" class="form-control" id="tanggal_jual" name="tanggal_jual" placeholder="Tanggal Penjualan">
+            </div>
         </form>
     </div>
     <div class="card-footer">

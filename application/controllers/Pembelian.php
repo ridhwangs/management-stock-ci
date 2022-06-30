@@ -35,6 +35,7 @@ class Pembelian extends CI_Controller {
 			'kode_warna' => $this->input->post('kode_warna'),
 			'no_rangka' => $this->input->post('no_rangka'),
 			'cabang' => $this->input->post('cabang'),
+			'tanggal_order' => $this->input->post('tanggal_order'),
 			'status' => 'stok',
 			'id_admin' => $this->session->id_admin
 		];

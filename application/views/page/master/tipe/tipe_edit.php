@@ -11,10 +11,6 @@
                 <small id="nama_tipe" class="form-text text-muted">Tipe Kendaraan wajib di isi.</small>
             </div>
             <div class="form-group">
-                <label for="safetystock">Safety Stock</label>
-                <input name="safetystock" type="text" class="form-control" value="<?= $data->safetystock; ?>" id="safetystock" aria-describedby="safetystock" autofocus required>
-            </div>
-            <div class="form-group">
                 <label for="reorderpoint">Reorder Point</label>
                 <input name="reorderpoint" type="text" class="form-control" value="<?= $data->reorderpoint; ?>" id="reorderpoint" aria-describedby="reorderpoint" autofocus required>
             </div>
