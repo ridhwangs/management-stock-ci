@@ -63,14 +63,6 @@
               Dashboard
             </a>
           </li>
-          <?php if($this->session->is_marketing == FALSE): ?>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pembelian'); ?>">
-              <span data-feather="shopping-cart"></span>
-              Pembelian
-            </a>
-          </li>
-          <?php endif; ?>
           <li class="nav-item">
             <a class="nav-link" href="<?= site_url('stock'); ?>">
               <span data-feather="file"></span>
@@ -84,37 +76,10 @@
             </a>
           </li>
         </ul>
-        <?php if($this->session->is_marketing == FALSE): ?>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Master Data</span>
-          <a class="link-secondary" aria-label="Master">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('master/tipe'); ?>">
-              <span data-feather="file-text"></span>
-              Master Tipe
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('master/warna'); ?>">
-              <span data-feather="file-text"></span>
-              Master Warna
-            </a>
-          </li>
-        </ul>
-        <?php endif; ?>
       </div>
     </nav>
-
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <?php if($this->session->is_marketing == FALSE): ?>
-      <?php $this->load->view('page/' . $page); ?>
-      <?php else: ?>
-      <?php $this->load->view('marketing/' . $page); ?>
-      <?php endif; ?>
+     <?php $this->load->view('page/' . $page); ?>
     </main>
   </div>
 </div>

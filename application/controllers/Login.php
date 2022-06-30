@@ -43,12 +43,30 @@ class Login extends CI_Controller {
 			$newdata = array(
 					'username'  => $where['username'],
 					'id_admin' 	=> $data->id_admin,
-					'logged_in' => TRUE
+					'logged_in' => TRUE,
+					'is_marketing' => FALSE,
 			);
 			$this->session->set_userdata($newdata);
 		}else{
-			// user tidak ditemukan
-			$status = 0;
+		
+			// cek user marketing
+			$m_query = $this->crud_model->read('marketing', $where);
+			$m_cek = $m_query->num_rows();
+			if($m_cek > 0){
+				$status = 1;
+				$m_data = $m_query->row();
+				$newdata = array(
+						'username'  => $where['username'],
+						'id_marketing' 	=> $m_data->id_admin,
+						'logged_in' => TRUE,
+						'is_marketing' => TRUE,
+				);
+				$this->session->set_userdata($newdata);
+				// marketing ditemukan
+			}else{
+					// user tidak ditemukan
+				$status = 0;
+			}
 		}
 
 		redirect($this->agent->referrer().'?status='.$status);
