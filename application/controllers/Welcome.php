@@ -21,7 +21,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = [
-			'page' => 'page_dashboard' 
+			'page' => 'page_dashboard' ,
+			'stock' => $this->crud_model->read('tipe_kendaraan')->result()
 		];
 		$this->load->view('main_layout', $data);
 	}
