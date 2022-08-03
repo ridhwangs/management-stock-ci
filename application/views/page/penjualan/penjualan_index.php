@@ -25,11 +25,7 @@
                   $marketing = $this->crud_model->read('marketing', ['id_marketing' => $rows->id_marketing])->row();
                   echo ' <tr>
                                 <td>'.$no++.'</td>
-<<<<<<< HEAD
                                 <td>'.$rows->tanggal_jual.'</td>
-=======
-                                <td>'.date('d/m/Y', strtotime($rows->tanggal_jual)).'</td>
->>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
                                 <td>'.$rows->cabang.'</td>
                                 <td>'.$rows->no_rangka.'</td>
                                 <td>'.$nama_tipe->nama_tipe.'</td>

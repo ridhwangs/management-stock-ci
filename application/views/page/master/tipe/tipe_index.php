@@ -22,11 +22,7 @@
               <th width="1%" scope="col-sm-1">No.</th>
               <th scope="col">Nama Tipe</th>
               <th scope="col">Reorder Point</th>
-<<<<<<< HEAD
               <th colspan="1" width="1%" scope="col-sm-1">#</th>
-=======
-              <th colspan="2" width="1%" scope="col-sm-1">#</th>
->>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
             </tr>
           </thead>
           <tbody>

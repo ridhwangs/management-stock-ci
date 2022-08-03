@@ -8,13 +8,8 @@
             <tr>
               <th width="3%" scope="col">#</th>
               <th scope="col">NAMA TIPE</th>
-<<<<<<< HEAD
               <th scope="col">Stok</th>
               
-=======
-              <th scope="col">Stock</th>
-              <th scope="col">Safety Stock</th>
->>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
               <th scope="col">Reoder Point</th>
               <th width="1%" scope="col">#</th>
             </tr>
@@ -30,11 +25,7 @@
                           <td>'.$no.'</td>
                           <td>'.$rows->nama_tipe.'</td>
                           <td>'.$qty.'</td>
-<<<<<<< HEAD
                           
-=======
-                          <td>'.$rows->safetystock.'</td>
->>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
                           <td>'.$rows->reorderpoint.'</td>
                           <td><a href="'.site_url('stock/details/'.$rows->kode_tipe).'" class="btn btn-sm btn-primary">View</a></td>
                       </tr>';

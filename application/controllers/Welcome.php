@@ -22,12 +22,8 @@ class Welcome extends CI_Controller {
 	{
 		$data = [
 			'page' => 'page_dashboard' ,
-<<<<<<< HEAD
 			'stock' => $this->crud_model->read('tipe_kendaraan')->result(),
 			
-=======
-			'stock' => $this->crud_model->read('tipe_kendaraan')->result()
->>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
 		];
 		if($this->session->is_marketing == TRUE):
 			$data['data'] = $this->crud_model->read('table_kendaraan',['status' => 'terjual','id_marketing' => $this->session->is_marketing, 'MONTH(tanggal_jual)' => date('m')])->result();
