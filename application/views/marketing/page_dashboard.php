@@ -47,10 +47,17 @@
                 </table>
               </div>
             </div>
+            <?php
+              if($no <= 10): 
+            ?>
+            <div class="card-footer">
+              <p style="color:red;">Anda belum mencapai target penjualan bulan ini</p>
+            </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
- 
+   
         <?php
                 $no = 0;
                 $total_penjualan = 0;
