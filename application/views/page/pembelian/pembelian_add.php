@@ -52,10 +52,6 @@
                 <label for="tanggal_order" class="form-label">Tanggal Order</label>
                 <input type="date" class="form-control" id="tanggal_order" name="tanggal_order" value="<?= $this->session->flashdata('tanggal_order'); ?>">
             </div>
-            <div class="mb-3">
-                <label for="tanggal_order" class="form-label">Tanggal Order</label>
-                <input type="date" class="form-control" id="tanggal_order" name="tanggal_order">
-            </div>
         </form>
     </div>
     <div class="card-footer">

@@ -34,7 +34,6 @@
                                 <td>'.$rows->nama_tipe.'</td>
                                 <td>'.$rows->reorderpoint.'</td>
                                 <td><a href="'.site_url('master/tipe/update/'. $rows->kode_tipe).'" class="btn btn-sm btn-primary">Edit</a></td>
-                                <td><a onclick="return confirm(\'Hapus Master?\')" href="'.site_url('master/delete/tipe/'. $rows->kode_tipe).'" class="btn btn-sm btn-danger">Hapus</a></td>
                             </tr>';
                 } 
             ?>
