@@ -4,7 +4,11 @@
       </div>
 
       <div class="table-responsive">
+<<<<<<< HEAD
         <table class="table table-striped table-sm" style="white-space: nowrap;">
+=======
+        <table class="table table-striped table-sm">
+>>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
           <thead>
             <tr>
               <th width="1%" scope="col-sm-1">No.</th>
@@ -25,7 +29,11 @@
                   $marketing = $this->crud_model->read('marketing', ['id_marketing' => $rows->id_marketing])->row();
                   echo ' <tr>
                                 <td>'.$no++.'</td>
+<<<<<<< HEAD
                                 <td>'.$rows->tanggal_jual.'</td>
+=======
+                                <td>'.date('d/m/Y', strtotime($rows->tanggal_jual)).'</td>
+>>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
                                 <td>'.$rows->cabang.'</td>
                                 <td>'.$rows->no_rangka.'</td>
                                 <td>'.$nama_tipe->nama_tipe.'</td>

@@ -18,6 +18,13 @@
                 <input name="nama_tipe" type="text" class="form-control" id="nama_tipe" aria-describedby="nama_tipe" autofocus>
                 <small id="nama_tipe" class="form-text text-muted">Tipe Kendaraan wajib di isi.</small>
             </div>
+<<<<<<< HEAD
+=======
+            <div class="form-group">
+                <label for="reorderpoint">Reorder Point</label>
+                <input name="reorderpoint" type="text" class="form-control" id="reorderpoint" aria-describedby="reorderpoint" autofocus required>
+            </div>
+>>>>>>> e12d46772a846915d05d1ee8c8d6b20f5295e8c0
             
         </form>
     </div>
