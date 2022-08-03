@@ -75,18 +75,29 @@ class Master extends CI_Controller {
 			case 'tipe':
 					$data = [
 						'nama_tipe' => $this->input->post('nama_tipe'),
-						'safetystock' => $this->input->post('safetystock'),
-						'reorderpoint' => $this->input->post('reorderpoint'),
 					];
-					$this->crud_model->create('tipe_kendaraan', $data);
-					redirect('master/tipe');
+					if(empty($data['nama_tipe'])){
+						$mesasge = "isi semua data";
+						redirect('master/tipe/add?message='.$mesasge);		
+					}else{
+						$this->crud_model->create('tipe_kendaraan', $data);
+						$mesasge = "Tipe kendaraan berhasil disimpan";
+						redirect('master/tipe?message='.$mesasge);
+					}
 				break;
 			case 'warna':
 					$data = [
 						'nama_warna' => $this->input->post('nama_warna')
 					];
-					$this->crud_model->create('warna_kendaraan', $data);
-					redirect('master/warna');
+					if(empty($data['nama_warna'])){
+						$mesasge = "isi semua data";
+						redirect('master/warna/add?message='.$mesasge);		
+					}else{
+						$this->crud_model->create('warna_kendaraan', $data);
+						$mesasge = "Warna kendaraan berhasil disimpan";
+						redirect('master/warna?message='.$mesasge);
+					}
+			
 				break;
 			default:
 				# code...
@@ -100,14 +111,18 @@ class Master extends CI_Controller {
 			case 'tipe':
 				$data = [
 					'nama_tipe' => $this->input->post('nama_tipe'),
-					'safetystock' => $this->input->post('safetystock'),
-					'reorderpoint' => $this->input->post('reorderpoint'),
 				];
 				$where = [
 					'kode_tipe' => $this->input->post('kode_tipe')
 				];
-				$this->crud_model->update('tipe_kendaraan', $where, $data);
-				redirect('master/tipe');
+				if(empty($data['nama_tipe'])){
+					$mesasge = "isi semua data";
+					redirect('master/tipe/update/'.$where['kode_tipe'].'?message='.$mesasge);		
+				}else{
+					$this->crud_model->update('tipe_kendaraan', $where, $data);
+					redirect('master/tipe?message=Tipe kendaraan berhasil diubah');
+				}
+				
 			break;
 			case 'warna':
 					$data = [
@@ -116,9 +131,33 @@ class Master extends CI_Controller {
 					$where = [
 						'kode_warna' => $this->input->post('kode_tkode_warnaipe')
 					];
-					$this->crud_model->create('warna_kendaraan',$where, $data);
-					redirect('master/warna');
+					if(empty($data['nama_warna'])){
+						$mesasge = "isi semua data";
+						redirect('master/warna/update/'.$where['kode_warna'].'?message='.$mesasge);		
+					}else{
+						$this->crud_model->create('warna_kendaraan',$where, $data);
+						redirect('master/warna?message=Warna kendaraan berhasil disimpan');
+					}
+				;
 				break;
+			default:
+				# code...
+				break;
+		}
+	}
+
+	public function delete($attr, $id)
+	{
+		switch ($attr) {
+			case 'tipe':
+				$this->crud_model->delete('tipe_kendaraan', ['kode_tipe' => $id]);
+				redirect('master/tipe?message=Tipe berhasil di hapus');
+				break;
+			case 'warna':
+				$this->crud_model->delete('warna_kendaraan', ['kode_warna' => $id]);
+				redirect('master/warna?message=Warna berhasil di hapus');
+				break;
+			
 			default:
 				# code...
 				break;

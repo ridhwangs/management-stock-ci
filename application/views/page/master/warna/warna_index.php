@@ -8,12 +8,18 @@
       </div>
 
       <div class="table-responsive">
+        <?php
+          if(!empty($this->input->get('message'))): 
+        ?>
+        <div class="alert alert-success" role="alert">
+          <?= $this->input->get('message') ?>
+        </div>
+        <?php endif; ?>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th width="1%" scope="col-sm-1">No.</th>
               <th scope="col">Nama Warna</th>
-              <th width="1%" scope="col-sm-1">#</th>
             </tr>
           </thead>
           <tbody>
@@ -23,8 +29,7 @@
                     echo ' <tr>
                                 <td>'.$no++.'</td>
                                 <td>'.$rows->nama_warna.'</td>
-                                <td><a href="'.site_url('master/warna/update/'. $rows->kode_warna).'" class="btn btn-sm btn-primary">Edit</a></td>
-                            </tr>';
+                           </tr>';
                 } 
             ?>
            

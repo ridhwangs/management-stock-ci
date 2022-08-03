@@ -21,8 +21,13 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = [
-			'page' => 'page_dashboard' 
+			'page' => 'page_dashboard' ,
+			'stock' => $this->crud_model->read('tipe_kendaraan')->result(),
+			
 		];
+		if($this->session->is_marketing == TRUE):
+			$data['data'] = $this->crud_model->read('table_kendaraan',['status' => 'terjual','id_marketing' => $this->session->is_marketing, 'MONTH(tanggal_jual)' => date('m')])->result();
+		endif;
 		$this->load->view('main_layout', $data);
 	}
 }

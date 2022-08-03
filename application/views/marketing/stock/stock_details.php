@@ -12,7 +12,6 @@
               <th width="1%" scope="col">Cabang</th>
               <th scope="col">No Rangka</th>
               <th scope="col">Warna</th>
-              <th width="1%" scope="col-sm-1">#</th>
             </tr>
           </thead>
           <tbody>
@@ -27,7 +26,6 @@
                                 <td>'.$rows->no_rangka.'</td>
                                 <td>'.$warna->nama_warna.'</td>
                                 
-                                <td><a href="'.site_url('stock/view/'.$rows->id_kendaraan).'" class="btn btn-sm btn-primary">Update</a></td>
                             </tr>';
                 } 
             ?>

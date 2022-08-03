@@ -43,12 +43,21 @@
       <div class="col-md-12"></div>
       <main class="form-signin">
     <form method="POST" action="<?= site_url('login/doLogin'); ?>">
+        <?php 
+            if($this->input->get('message')){
+        ?>
+            <div class="alert alert-success" role="alert">
+            <?= $this->input->get('message'); ?>
+            </div>
+        <?php
+            }
+        ?>
         <div class="form-floating">
-            <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username" required>
+            <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username">
             <label for="floatingInput">Username</label>
         </div>
         <div class="form-floating">
-            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>

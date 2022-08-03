@@ -1,7 +1,17 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Tambah Tipe Kendaraan Baru</h1>
+    <h1 class="h2">Update Status kendaraan</h1>
 </div>
+<?php 
+    if(!empty($this->input->get('message'))){
+    ?>
+    <div class="alert alert-success" role="alert">
+    <?= $this->input->get('message'); ?>
+    </div>
+<?php
+    }
+?>
 <div class="card">
+    
     <div class="card-body">
         <form id="form" method="POST" action="<?= site_url('stock/update') ?>">
             <input type="hidden" name="id_kendaraan" value="<?= $this->uri->segment(3); ?>">
@@ -51,6 +61,10 @@
                         } 
                     ?>
                 </select>
+            </div>
+            <div class="mb-3" id="div_tanggal_penjualan">
+            <label for="tanggal_jual" class="form-label">Tanggal Penjualan</label>
+            <input type="date" class="form-control" id="tanggal_jual" name="tanggal_jual" placeholder="Tanggal Penjualan">
             </div>
         </form>
     </div>

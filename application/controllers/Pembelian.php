@@ -35,10 +35,32 @@ class Pembelian extends CI_Controller {
 			'kode_warna' => $this->input->post('kode_warna'),
 			'no_rangka' => $this->input->post('no_rangka'),
 			'cabang' => $this->input->post('cabang'),
+			'tanggal_order' => $this->input->post('tanggal_order'),
 			'status' => 'stok',
 			'id_admin' => $this->session->id_admin
 		];
-		$this->crud_model->create('table_kendaraan', $data);
-		redirect($this->agent->referrer().'?status=1');
+		if((empty($data['cabang'])) && (empty($data['no_rangka'])) && (empty($data['tanggal_order'])))
+		{
+			$message = 'isi semua data';
+			$status = 0;
+		}elseif(empty($data['cabang'])){
+			$message = 'data belum lengkap';
+			$status = 0;
+		
+		}elseif(empty($data['no_rangka'])){
+			$message = 'data belum lengkap';
+			$status = 0;
+		
+		}else{
+			$message = 'data berhasil di simpan';
+			$status = 1;
+			$this->crud_model->create('table_kendaraan', $data);
+		}
+		
+		$this->session->set_flashdata('cabang', $data['cabang']);
+		$this->session->set_flashdata('no_rangka', $data['no_rangka']);
+		$this->session->set_flashdata('tanggal_order', $data['tanggal_order']);
+
+		redirect(site_url('pembelian').'?status='.$status.'&message='.$message);
 	}
 }

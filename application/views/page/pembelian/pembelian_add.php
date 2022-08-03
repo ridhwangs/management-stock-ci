@@ -2,20 +2,27 @@
     <h1 class="h2">Tambah Pembelian Kendaraan Baru</h1>
 </div>
     <?php 
-        if($this->input->get('status')){
+        if(!empty($this->input->get('message'))){
     ?>
         <div class="alert alert-success" role="alert">
-        Data berhasil di simpan
+         <?= $this->input->get('message'); ?>
         </div>
     <?php
         }
     ?>
+<?php 
+    if($this->input->get('status') == 0){
+?>
 <div class="card">
     <div class="card-body">
         <form id="form" method="POST" action="<?= site_url('pembelian/create') ?>">
             <div class="mb-3">
                 <label for="cabang" class="form-label">Cabang</label>
-                <input type="text" class="form-control" id="cabang" name="cabang" placeholder="Cabang" required>
+                <select class="form-select" id="cabang" name="cabang" aria-label="Babang Kendaraan">
+                    <option value="ARS">ARS</option>
+                    <option value="SDR">SDR</option>
+                    <option value="CRB">CRB</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="kode_tipe" class="form-label">Pilih Tipe Kendaraan</label>
@@ -38,8 +45,12 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="no_warna" class="form-label">No Rangka</label>
-                <input type="text" class="form-control" id="no_warna" name="no_rangka" placeholder="Nomor Rangka Kendaraan" required>
+                <label for="no_rangka" class="form-label">No Rangka</label>
+                <input type="text" class="form-control" id="no_rangka" name="no_rangka" value="<?= $this->session->flashdata('no_rangka'); ?>" placeholder="Nomor Rangka Kendaraan">
+            </div>
+            <div class="mb-3">
+                <label for="tanggal_order" class="form-label">Tanggal Order</label>
+                <input type="date" class="form-control" id="tanggal_order" name="tanggal_order" value="<?= $this->session->flashdata('tanggal_order'); ?>">
             </div>
         </form>
     </div>
@@ -47,3 +58,4 @@
         <button type="submit" form="form" class="btn btn-primary">Submit</button>
     </div>
 </div>
+<?php } ?>

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'spsarana.com',
-	'username' => 'spsarana_root',
-	'password' => 'Lupalagi03',
-	'database' => 'spsarana_kend',
+	'hostname' => '18.142.190.121',
+	'username' => 'db_stock',
+	'password' => 'KxR56kd5WkLRBNNN',
+	'database' => 'db_stock',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
