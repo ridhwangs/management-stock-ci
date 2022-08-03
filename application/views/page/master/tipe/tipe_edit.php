@@ -19,6 +19,22 @@
                 <input name="nama_tipe" type="text" value="<?= $data->nama_tipe; ?>" class="form-control" id="nama_tipe" aria-describedby="nama_tipe" autofocus>
                 <small id="nama_tipe" class="form-text text-muted">Tipe Kendaraan wajib di isi.</small>
             </div>
+            <div class="form-group">
+                <label for="lead_time">Lead Time</label>
+                <input name="lead_time" type="number" class="form-control" value="<?= $data->lead_time; ?>" id="lead_time">
+            </div>
+            <div class="form-group">
+                <label for="lead_time_terlama">Lead Time Terlama</label>
+                <input name="lead_time_terlama" type="number" class="form-control" value="<?= $data->lead_time_terlama; ?>" id="lead_time_terlama">
+            </div>
+            <div class="form-group">
+                <label for="rata_rata_penjualan_harian">Rata Rata Penjualan Harian</label>
+                <input name="rata_rata_penjualan_harian" type="number" class="form-control" value="<?= $data->rata_rata_penjualan_harian; ?>" id="rata_rata_penjualan_harian">
+            </div>
+            <div class="form-group">
+                <label for="penjualan_harian_tertinggi">Penjualan Harian Tertinggi</label>
+                <input name="penjualan_harian_tertinggi" type="number" class="form-control" value="<?= $data->penjualan_harian_tertinggi; ?>" id="penjualan_harian_tertinggi">
+            </div>
         </form>
     </div>
     <div class="card-footer">

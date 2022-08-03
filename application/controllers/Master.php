@@ -73,8 +73,17 @@ class Master extends CI_Controller {
 	{
 		switch ($params) {
 			case 'tipe':
+					$safetystock = ($this->input->post('penjualan_harian_tertinggi') * $this->input->post('lead_time_terlama')) - ($this->input->post('rata_rata_penjualan_harian') * $this->input->post('lead_time'));
+					$lead_time_demand = $this->input->post('lead_time') * $this->input->post('rata_rata_penjualan_harian');
 					$data = [
 						'nama_tipe' => $this->input->post('nama_tipe'),
+						'lead_time' => $this->input->post('lead_time'),
+						'lead_time_terlama' => $this->input->post('lead_time_terlama'),
+						'rata_rata_penjualan_harian' => $this->input->post('rata_rata_penjualan_harian'),
+						'penjualan_harian_tertinggi' => $this->input->post('penjualan_harian_tertinggi'),
+						'lead_time_demand' => $lead_time_demand,
+						'safetystock' => $safetystock,
+						'reorderpoint' => $lead_time_demand + $safetystock,
 					];
 					if(empty($data['nama_tipe'])){
 						$mesasge = "isi semua data";
@@ -109,8 +118,17 @@ class Master extends CI_Controller {
 	{
 		switch ($params) {
 			case 'tipe':
+				$safetystock = ($this->input->post('penjualan_harian_tertinggi') * $this->input->post('lead_time_terlama')) - ($this->input->post('rata_rata_penjualan_harian') * $this->input->post('lead_time'));
+				$lead_time_demand = $this->input->post('lead_time') * $this->input->post('rata_rata_penjualan_harian');
 				$data = [
 					'nama_tipe' => $this->input->post('nama_tipe'),
+					'lead_time' => $this->input->post('lead_time'),
+					'lead_time_terlama' => $this->input->post('lead_time_terlama'),
+					'rata_rata_penjualan_harian' => $this->input->post('rata_rata_penjualan_harian'),
+					'penjualan_harian_tertinggi' => $this->input->post('penjualan_harian_tertinggi'),
+					'lead_time_demand' => $lead_time_demand,
+					'safetystock' => $safetystock,
+					'reorderpoint' => $lead_time_demand + $safetystock,
 				];
 				$where = [
 					'kode_tipe' => $this->input->post('kode_tipe')
