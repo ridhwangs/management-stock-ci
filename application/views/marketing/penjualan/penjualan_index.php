@@ -14,6 +14,7 @@
             </div>
             <div class="col-auto">
               <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+              <a href="<?= site_url('penjualan/download') ?>?tgl_awal=<?= $this->input->get('tgl_awal') ?>&tgl_akhir=<?= $this->input->get('tgl_akhir') ?>">Download as PDF</a>
             </div>
         </div>
       </form>
