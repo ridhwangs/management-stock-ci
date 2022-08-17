@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3>Laporan Penjualan bulan ini</h3>
+              <h3>Laporan Penjualan bulan <?= date('F Y') ?></h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
