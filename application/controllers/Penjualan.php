@@ -64,7 +64,9 @@ class Penjualan extends CI_Controller {
 			'data' => $this->crud_model->read('table_kendaraan', $where, 'tanggal_jual', 'ASC')->result(),
 		];
 		$this->load->library('pdf');
-        $html = $this->load->view('pdf', $data, true);
-        $this->pdf->createPDF($html, 'Laporang_Penjualan_'.date('YmdHiS'), false);
+		$this->pdf->setPaper('A4', 'portrait');
+		$fileName = 'Laporan_Penjualan_' . time();
+		$this->pdf->filename = $fileName.".pdf";
+		$this->pdf->load_view('pdf', $data);
 	}
 }
