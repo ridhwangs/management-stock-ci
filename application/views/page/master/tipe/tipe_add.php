@@ -19,6 +19,10 @@
                 <small id="nama_tipe" class="form-text text-muted">Tipe Kendaraan wajib di isi.</small>
             </div>
             <div class="form-group">
+                <label for="tahun">Tahun</label>
+                <input name="tahun" type="year" class="form-control" id="tahun">
+            </div>
+            <div class="form-group">
                 <label for="lead_time">Lead Time</label>
                 <input name="lead_time" type="number" class="form-control" id="lead_time">
             </div>

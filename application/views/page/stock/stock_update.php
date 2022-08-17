@@ -18,7 +18,12 @@
             
             <div class="mb-3">
                 <label for="cabang" class="form-label">Cabang</label>
-                <input type="text" class="form-control" id="cabang" name="cabang" placeholder="Cabang" value="<?= $data->cabang; ?>" required>
+                <select class="form-select" id="cabang" name="cabang" aria-label="Babang Kendaraan">
+                    <option value="ARS">ARS</option>
+                    <option value="SDR">SDR</option>
+                    <option value="CRB">CRB</option>
+                    <option value="IDM">IDM</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="kode_tipe" class="form-label">Pilih Tipe Kendaraan</label>

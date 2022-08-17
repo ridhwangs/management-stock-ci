@@ -53,6 +53,10 @@
             <div class="card-footer">
               <p style="color:red;">Anda belum mencapai target penjualan bulan ini</p>
             </div>
+            <?php else: ?>
+              <div class="card-footer">
+              <p style="color:green;">Anda sudah mencapai target penjualan bulan ini</p>
+            </div>
             <?php endif; ?>
           </div>
         </div>

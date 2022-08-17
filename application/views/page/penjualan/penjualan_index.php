@@ -1,8 +1,22 @@
- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Penjualan Kendaraan</h1>
- 
       </div>
-
+      <form method="GET">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="tgl_awal" class="col-form-label">Filter</label>
+            </div>
+            <div class="col-auto">
+              <input type="date" id="tgl_awal" name="tgl_awal" class="form-control" value="<?= $this->input->get('tgl_awal') ?>" aria-describedby="tgl_awal">
+            </div>
+            <div class="col-auto">
+              <input type="date" id="tgl_akhir" name="tgl_akhir" class="form-control" value="<?= $this->input->get('tgl_akhir') ?>" aria-describedby="tgl_akhir">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </div>
+      </form>
       <div class="table-responsive">
         <table class="table table-striped table-sm" style="white-space: nowrap;">
           <thead>

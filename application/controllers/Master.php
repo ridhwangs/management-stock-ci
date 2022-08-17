@@ -77,6 +77,7 @@ class Master extends CI_Controller {
 					$lead_time_demand = $this->input->post('lead_time') * $this->input->post('rata_rata_penjualan_harian');
 					$data = [
 						'nama_tipe' => $this->input->post('nama_tipe'),
+						'tahun' => $this->input->post('tahun'),
 						'lead_time' => $this->input->post('lead_time'),
 						'lead_time_terlama' => $this->input->post('lead_time_terlama'),
 						'rata_rata_penjualan_harian' => $this->input->post('rata_rata_penjualan_harian'),
@@ -89,8 +90,13 @@ class Master extends CI_Controller {
 						$mesasge = "isi semua data";
 						redirect('master/tipe/add?message='.$mesasge);		
 					}else{
-						$this->crud_model->create('tipe_kendaraan', $data);
-						$mesasge = "Tipe kendaraan berhasil disimpan";
+						$cek = $this->crud_model->read('tipe_kendaraan', ['nama_tipe' => $data['nama_tipe'], 'tahun' => $data['tahun']])->num_rows();
+						if($cek > 0){
+							$mesasge = "Tipe kendaraan sudah ada";
+						}else{
+							$this->crud_model->create('tipe_kendaraan', $data);
+							$mesasge = "Tipe kendaraan berhasil disimpan";
+						}
 						redirect('master/tipe?message='.$mesasge);
 					}
 				break;
@@ -102,8 +108,13 @@ class Master extends CI_Controller {
 						$mesasge = "isi semua data";
 						redirect('master/warna/add?message='.$mesasge);		
 					}else{
-						$this->crud_model->create('warna_kendaraan', $data);
-						$mesasge = "Warna kendaraan berhasil disimpan";
+						$cek = $this->crud_model->read('warna_kendaraan', ['nama_warna' => $data['nama_warna']])->num_rows();
+						if($cek > 0){
+							$mesasge = "Warna kendaraan sudah ada";
+						}else{
+							$this->crud_model->create('warna_kendaraan', $data);
+							$mesasge = "Warna kendaraan berhasil disimpan";
+						}
 						redirect('master/warna?message='.$mesasge);
 					}
 			
@@ -123,6 +134,7 @@ class Master extends CI_Controller {
 				$data = [
 					'nama_tipe' => $this->input->post('nama_tipe'),
 					'lead_time' => $this->input->post('lead_time'),
+					'tahun' => $this->input->post('tahun'),
 					'lead_time_terlama' => $this->input->post('lead_time_terlama'),
 					'rata_rata_penjualan_harian' => $this->input->post('rata_rata_penjualan_harian'),
 					'penjualan_harian_tertinggi' => $this->input->post('penjualan_harian_tertinggi'),

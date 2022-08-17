@@ -11,6 +11,7 @@
             <tr>
               <th width="3%" scope="col">#</th>
               <th scope="col">NAMA TIPE</th>
+              <th scope="col">Tahun</th>
               <th scope="col">Stock</th>
              
               <th scope="col">Reoder Point</th>
@@ -34,6 +35,7 @@
                       echo ' <tr>
                           <td>'.$no.'</td>
                           <td>'.$rows->nama_tipe.'</td>
+                          <td>'.$rows->tahun.'</td>
                           <td>'.$qty.'</td>
                          
                           <td>'.$rows->reorderpoint.'</td>
@@ -66,6 +68,7 @@
             <tr>
               <th width="3%" scope="col">#</th>
               <th scope="col">NAMA TIPE</th>
+              <th scope="col">Tahun</th>
               <th scope="col">Stock</th>
              
               <th scope="col">Reoder Point</th>
@@ -89,6 +92,7 @@
                       echo ' <tr>
                           <td>'.$no.'</td>
                           <td>'.$rows->nama_tipe.'</td>
+                          <td>'.$rows->tahun.'</td>
                           <td>'.$qty.'</td>
                          
                           <td>'.$rows->reorderpoint.'</td>

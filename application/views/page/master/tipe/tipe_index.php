@@ -21,6 +21,7 @@
             <tr>
               <th width="1%" scope="col-sm-1">No.</th>
               <th scope="col">Nama Tipe</th>
+              <th scope="col">Tahun</th>
               <th scope="col">Reorder Point</th>
               <th colspan="1" width="1%" scope="col-sm-1">#</th>
             </tr>
@@ -32,6 +33,7 @@
                     echo ' <tr>
                                 <td>'.$no++.'</td>
                                 <td>'.$rows->nama_tipe.'</td>
+                                <td>'.$rows->tahun.'</td>
                                 <td>'.$rows->reorderpoint.'</td>
                                 <td><a href="'.site_url('master/tipe/update/'. $rows->kode_tipe).'" class="btn btn-sm btn-primary">Edit</a></td>
                             </tr>';
