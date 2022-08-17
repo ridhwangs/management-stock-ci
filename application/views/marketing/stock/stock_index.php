@@ -8,8 +8,8 @@
             <tr>
               <th width="3%" scope="col">#</th>
               <th scope="col">NAMA TIPE</th>
+              <th scope="col">Tahun</th>
               <th scope="col">Stok</th>
-              
               <th scope="col">Reoder Point</th>
               <th width="1%" scope="col">#</th>
             </tr>
@@ -24,6 +24,7 @@
                       echo ' <tr>
                           <td>'.$no.'</td>
                           <td>'.$rows->nama_tipe.'</td>
+                          <td>'.$rows->tahun.'</td>
                           <td>'.$qty.'</td>
                           
                           <td>'.$rows->reorderpoint.'</td>
