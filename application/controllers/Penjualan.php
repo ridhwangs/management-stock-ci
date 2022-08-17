@@ -42,4 +42,29 @@ class Penjualan extends CI_Controller {
 		];
 		$this->load->view('main_layout', $data);
 	}
+
+	public function download()
+	{
+		if(!empty($this->input->get('tgl_awal')) && !empty($this->input->get('tgl_akhir'))){
+			$where = [
+				'tanggal_jual >=' => $this->input->get('tgl_awal'),
+				'tanggal_jual <=' => $this->input->get('tgl_akhir')
+			];
+		}elseif(!empty($this->input->get('tgl_awal'))){
+			$where = [
+				'tanggal_jual >=' => $this->input->get('tgl_awal'),
+			];
+		}elseif(!empty($this->input->get('tgl_akhir'))){
+			$where = [
+				'tanggal_jual <=' => $this->input->get('tgl_akhir'),
+			];
+		}
+		$where['status'] = 'terjual';
+		$data = [
+			'data' => $this->crud_model->read('table_kendaraan', $where, 'tanggal_jual', 'ASC')->result(),
+		];
+		$this->load->library('pdf');
+        $html = $this->load->view('pdf', $data, true);
+        $this->pdf->createPDF($html, 'Laporang_Penjualan_'.date('YmdHiS'), false);
+	}
 }
