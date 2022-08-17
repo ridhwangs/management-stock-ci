@@ -21,10 +21,18 @@ class Penjualan extends CI_Controller {
 	public function index()
 	{
 		
-		if(!empty($this->input->get('tgl_awal'))){
+		if(!empty($this->input->get('tgl_awal')) && !empty($this->input->get('tgl_akhir'))){
 			$where = [
 				'tanggal_jual >=' => $this->input->get('tgl_awal'),
 				'tanggal_jual <=' => $this->input->get('tgl_akhir')
+			];
+		}elseif(!empty($this->input->get('tgl_awal'))){
+			$where = [
+				'tanggal_jual >=' => $this->input->get('tgl_awal'),
+			];
+		}elseif(!empty($this->input->get('tgl_akhir'))){
+			$where = [
+				'tanggal_jual <=' => $this->input->get('tgl_akhir'),
 			];
 		}
 		$where['status'] = 'terjual';
